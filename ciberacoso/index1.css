@@ -1,0 +1,481 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 300;
+    font-style: normal;
+}
+
+#fondoCont {
+    width: 100%;
+    min-height: 120vh;
+    background: rgba(29, 31, 32, 0.904) radial-gradient(rgba(255, 255, 255, 0.712) 10%, transparent 1%);
+    background-size: 11px 11px;
+    /* 
+    ::before
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, black 10%, transparent 10%);
+    background-size: 30px 30px; */
+}
+
+#cabecera {
+    padding: 1rem;
+}
+
+#contenedor {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+}
+
+/* Animación del título giratorio */
+.scene {
+    width: clamp(8em, 10vw, 10em);
+}
+
+.cube {
+    color: #ccc;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    transition: all 0.85s cubic-bezier(0.17, 0.67, 0.14, 0.93);
+    transform-style: preserve-3d;
+    transform-origin: 100% 50%;
+    width: 2em;
+    height: 4em;
+}
+
+.cube:hover {
+    transform: rotateX(-90deg);
+}
+
+.side {
+    box-sizing: border-box;
+    position: absolute;
+    display: inline-block;
+    height: 4em;
+    width: 8em;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 1.5em;
+    font-weight: bold;
+}
+
+.top {
+    background: wheat;
+    color: #222229;
+    transform: rotateX(90deg) translate3d(0, 0, 2em);
+    box-shadow: inset 0 0 0 5px #fff;
+}
+
+.front {
+    background: #222229;
+    color: #fff;
+    box-shadow: inset 0 0 0 5px #fff;
+    transform: translate3d(0, 0, 2em);
+}
+
+button {
+    position: relative;
+    height: 3.125rem;
+    padding: 0 1.875rem;
+    border: 2px solid #000;
+    background: #e8e8e8;
+    user-select: none;
+    white-space: nowrap;
+    transition: all 0.05s linear;
+    font-family: inherit;
+    /* flex-wrap:wrap; */
+}
+
+button:before,
+button:after {
+    content: "";
+    position: absolute;
+    background: #e8e8e8;
+    transition: all 0.2s linear;
+}
+
+button:before {
+    width: calc(100% + 5px);
+    height: calc(100% - 16px);
+    top: 8px;
+    left: -3px;
+}
+
+button:after {
+    width: calc(100% - 16px);
+    height: calc(100% + 6px);
+    top: -3px;
+    left: 8px;
+}
+
+button:hover {
+    cursor: crosshair;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:hover:before {
+    height: calc(100% - 32px);
+    top: 16px;
+}
+
+button:hover:after {
+    width: calc(100% - 32px);
+    left: 16px;
+}
+
+button span {
+    font-size: 15px;
+    z-index: 3;
+    position: relative;
+    font-weight: 600;
+}
+
+/* Resto de estilos del botón igual */
+
+#seccion1 {
+    display: flex;
+    width: 100%;
+    min-height: 55vh;
+    flex-wrap: wrap;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+#general {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+}
+
+#izqCont {
+    flex: 1 1 min(68%, 800px);
+    padding: .3rem;
+    margin: 0;
+    /* margin-left: 2em; */
+}
+
+#derCont {
+    flex: 1 1 min(17%, 300px);
+    padding: 1.5rem;
+    margin: 0;
+}
+
+#bloquesP {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.card {
+    width: 98%;
+    max-width: 62.5em;
+    height: auto;
+    min-height: 17em;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.999s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    height: 10em;
+    backface-visibility: hidden;
+}
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    height: auto;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: #65656c;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border: 10px solid #65656c;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: clamp(16px, 2vw, 24px);
+    /* Texto responsive */
+    transform: rotateY(0deg);
+}
+
+.card-back {
+    background-color: #b8b9b9;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border: 10px solid #b8b9b9;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: clamp(14px, 2vw, 18px);
+    /* text-align: justify; */
+    transform: rotateY(180deg);
+}
+
+#infoAcoso {
+    font-size: 1em;
+    padding: 1em;
+    color: black;
+}
+
+/* Resto de estilos de la card igual */
+
+#dataDer {
+    height: 92%;
+    padding: 1.6rem;
+    border-radius: 30px;
+    background: #212121;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
+    color: white;
+}
+#infoCol{
+    line-height: 1.5;
+    text-align: center;
+}
+#infoCol h4{
+    margin-bottom: 0;
+}
+#infoCol p{
+    margin-top:0;
+}
+/* #listaDatos{
+    list-style-type: ; 
+} */
+
+#bloquesP {
+    margin-top: 1em;
+}
+
+.contInfo {
+    position: relative;
+    max-width: auto;
+    /* width: 16em; */
+    width: auto;
+    padding: 1.7em;
+    /* height: 0.5%; */
+    border-radius: 30px;
+    background: lightgrey;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+}
+
+.tem h4 {
+    margin-top: 0;
+    text-align: center;
+
+}
+
+/* Fin de la seccion de la izquierda */
+/* Inicio de la segunda seccion*/
+
+#seccion2{
+    display:flex;
+    position:relative;
+    width: 100%;
+    align-items:center;
+}
+#contenedor2{
+    display:flex;
+    /* align-items:center; */
+    justify-content:space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+}
+#datosEstado {
+    width: 35%;
+    /* margin-left: 32%; */
+}
+
+/* Contendra la informacion del estado que estara en la parte derecha */
+#datosEstado{
+    position: static;
+}
+#contEstado {
+    width: 70%;
+    border-radius:30px;
+    background:lightgrey;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+    padding:2em;
+    align-items:center;
+    justify-content:center;
+    margin-bottom: 4em;
+}
+
+#listaDatos{
+    padding-top:5em;
+    display:flex;
+    justify-content:center;
+}
+
+#estado {
+    display:flex;
+    text-align: center;
+    padding:.5em;
+    color: #fff;
+    font-style: oblique;
+    width: 60%;
+    align-items:center;
+    justify-content:center;
+}
+
+#datos {
+    margin-top: .5em;
+}
+#contenedorTitle{
+    display:flex;
+
+}
+/* Posicionar el escudo del estado */
+#estadoImg{
+    display:flex;
+    position:relative;
+    /* width:20em; */
+    /* height:10em; */
+    justify-content:center;
+}
+
+/* Estilos de la grafica */
+
+#espacioGraf {
+    /* width: 10em; */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#MiGrafica {
+    max-width: 100%;
+    /* width: 20em; */
+}
+
+/* mapa svg */
+#mapa{
+    width: 800px;
+    height:400px;
+    transform: translateX(-20px);
+}
+#imagenRep{
+    display:flex;
+    justify-content:left;
+    margin-left: -20px;
+    padding-top: 10em;
+}
+#imagenRep path{
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+svg{
+    /* background:#88A4BC; */
+    display:flex;
+    justify-content:center;
+    border-color:#FFFFFF;
+    padding-top:2em;
+    margin-left: -60px;
+}
+#mapa path:hover {
+    fill: #3B729F;
+    
+}
+
+/* Diseño del pie de pagina  */
+
+footer{
+    /* display:flex;
+    justify-content:center; */
+    padding-top:1em;
+    background-color: #45474B;
+    color:#FFFFFF;
+    flex-wrap: wrap;
+
+}
+#contInfo{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+#temaF h3,p{
+    text-align:center;
+}
+#temaF{
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+#contListF{
+    margin-top:1em;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.listDatos{
+    padding:2em;
+}
+
+#sitios1,#sitios2{
+    /* display:flex; */
+    /* flex: 1 1 20%; */
+    box-sizing: border-box;
+    margin:0.5em;
+    min-width: 250px;
+    width: 40%;
+    /* background-color: red; */
+
+}
+
+
+/* Fin del diseño del pie de pagina */
+
+/* media queries */
+@media(max-width:600px){
+    #mapa{
+        width: 380px;
+        height: 190px;
+        margin:0 auto;
+        margin-right: 0;
+        padding-top:.5em;
+        transform: translateX(-30px);
+    }
+    #imagenRep {
+        margin-left: -30px; 
+        padding-top:.5em;
+        margin-right:0;
+    }
+
+    svg {
+        margin-left: -30px; 
+        padding-top:.5em;
+        margin-right: 0;
+    }
+
+}
