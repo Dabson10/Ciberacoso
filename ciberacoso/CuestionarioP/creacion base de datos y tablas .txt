@@ -1,0 +1,216 @@
+create database encuestas;
+use encuestas;
+
+-- creacion de la tabla para los guardar los datos de los encuestados
+create table encuestados
+(
+
+	id_encuestados int AUTO_INCREMENT,
+	correo varchar(70),
+	carrera varchar(70),
+	cuatri int,
+	edad int,
+	primary key (id_encuestados)
+
+);
+
+
+create table preguntas (
+
+	id_preguntas int AUTO_INCREMENT,
+	pregunta varchar(255),
+	respuesta varchar(50),
+	cant_resp int,
+	primary key (id_preguntas)
+
+);
+
+create table respuestas (
+
+	id_respuestas int,
+	id_encuestado int,
+	id_pregunta int,
+	respuesta varchar(75),
+	primary key (id_respuestas),
+	foreign key(id_encuestado)references encuestados(id_encuestados),
+	foreign key(id_pregunta)references preguntas(id_preguntas)
+
+);
+
+-- Ahora se hacen los inserts de las preguntas y sus respuestas solamente que 
+-- Se agregara pregunta y una opcion por lo que por pregunta son 4 opciones 
+-- y el total de preguntas son 16, el total de las filas sera 64 esto es para
+-- que sea sencillo contabilizar el total de las respuestas por opciones 
+-- verificar la tabla si no se entiende completamente 
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+    ('1¿Consideras que los contenidos éticos en tu carrera son suficientes?', 'Totalmente de acuerdo', 0),
+    ('1¿Consideras que los contenidos éticos en tu carrera son suficientes?', 'De acuerdo', 0),
+    ('1¿Consideras que los contenidos éticos en tu carrera son suficientes?', 'Ni de acuerdo ni en desacuerdo', 0),
+    ('1¿Consideras que los contenidos éticos en tu carrera son suficientes?', 'En desacuerdo', 0);
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+    ('2 ¿Crees que la ética debería tener mayor importancia en el plan de estudios universitario?', 'Totalmente de acuerdo', 0),
+    ('2 ¿Crees que la ética debería tener mayor importancia en el plan de estudios universitario?', 'De acuerdo', 0),
+    ('2 ¿Crees que la ética debería tener mayor importancia en el plan de estudios universitario?', 'Ni de acuerdo ni en desacuerdo', 0),
+    ('2 ¿Crees que la ética debería tener mayor importancia en el plan de estudios universitario?', 'En desacuerdo', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+    ('3 ¿Consideras que los estudiantes aplican los principios éticos fuera de la universidad?', 'Totalmente de acuerdo', 0),
+    ('3 ¿Consideras que los estudiantes aplican los principios éticos fuera de la universidad?', 'De acuerdo', 0),
+    ('3 ¿Consideras que los estudiantes aplican los principios éticos fuera de la universidad?', 'Ni de acuerdo ni en desacuerdo', 0),
+    ('3 ¿Consideras que los estudiantes aplican los principios éticos fuera de la universidad?', 'En desacuerdo', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+    ('4 ¿Piensas que la ética es igual de importante que los conocimientos técnicos en la carrera?', 'Totalmente de acuerdo', 0),
+    ('4 ¿Piensas que la ética es igual de importante que los conocimientos técnicos en la carrera?', 'De acuerdo', 0),
+    ('4 ¿Piensas que la ética es igual de importante que los conocimientos técnicos en la carrera?', 'Ni de acuerdo ni en desacuerdo', 0),
+    ('4 ¿Piensas que la ética es igual de importante que los conocimientos técnicos en la carrera?', 'En desacuerdo', 0);
+
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+    ('5 ¿Cuán probable crees que es que los problemas éticos impacten en el éxito profesional de alguien?', 'Muy probable', 0),
+    ('5 ¿Cuán probable crees que es que los problemas éticos impacten en el éxito profesional de alguien?', 'Probable', 0),
+    ('5 ¿Cuán probable crees que es que los problemas éticos impacten en el éxito profesional de alguien?', 'Poco probable', 0),
+    ('5 ¿Cuán probable crees que es que los problemas éticos impacten en el éxito profesional de alguien?', 'Improbable', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+    ('6 ¿Consideras que los cursos de ética han cambiado tus valores personales?', 'Mucho', 0),
+    ('6 ¿Consideras que los cursos de ética han cambiado tus valores personales?', 'Algo', 0),
+    ('6 ¿Consideras que los cursos de ética han cambiado tus valores personales?', 'Poco', 0),
+    ('6 ¿Consideras que los cursos de ética han cambiado tus valores personales?', 'Nada', 0);
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+
+
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('7 ¿Crees que es posible enseñar ética de forma efectiva en un entorno académico?', 'Totalmente de acuerdo', 0),
+   ('7 ¿Crees que es posible enseñar ética de forma efectiva en un entorno académico?', 'De acuerdo', 0),
+   ('7 ¿Crees que es posible enseñar ética de forma efectiva en un entorno académico?', 'Ni de acuerdo ni en desacuerdo', 0),
+   ('7 ¿Crees que es posible enseñar ética de forma efectiva en un entorno académico?', 'En desacuerdo', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('8 ¿Cómo influye la ética en tu percepción de la reputación de UTC?', 'Muy alto', 0),
+   ('8 ¿Cómo influye la ética en tu percepción de la reputación de UTC?', 'Alto', 0),
+   ('8 ¿Cómo influye la ética en tu percepción de la reputación de UTC?', 'Moderado', 0),
+   ('8 ¿Cómo influye la ética en tu percepción de la reputación de UTC?', 'Bajo', 0);
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('9 ¿Como calificarías la preparación ética de los docentes de UTC en comparación con otras instituciones?', 'Muy alto', 0),
+   ('9 ¿Como calificarías la preparación ética de los docentes de UTC en comparación con otras instituciones?', 'Alto', 0),
+   ('9 ¿Como calificarías la preparación ética de los docentes de UTC en comparación con otras instituciones?', 'Moderado', 0),
+   ('9 ¿Como calificarías la preparación ética de los docentes de UTC en comparación con otras instituciones?', 'Bajo', 0);
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('10 ¿Cómo valorarías el interés de tus compañeros en temas de ética profesional?', 'Muy alto', 0),
+   ('10 ¿Cómo valorarías el interés de tus compañeros en temas de ética profesional?', 'Alto', 0),
+   ('10 ¿Cómo valorarías el interés de tus compañeros en temas de ética profesional?', 'Moderado', 0),
+   ('10 ¿Cómo valorarías el interés de tus compañeros en temas de ética profesional?', 'Bajo', 0);
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('11 ¿Has respetado los acuerdos de convivencia escritos en el reglamento?', 'Algunas veces', 0),
+   ('11 ¿Has respetado los acuerdos de convivencia escritos en el reglamento?', 'Si', 0),
+   ('11 ¿Has respetado los acuerdos de convivencia escritos en el reglamento?', 'No', 0),
+   ('11 ¿Has respetado los acuerdos de convivencia escritos en el reglamento?', 'No lo se', 0);
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('12 ¿Consideras importante la formación ética en la universidad para los estudiantes?', 'Totalmente de acuerdo', 0),
+   ('12 ¿Consideras importante la formación ética en la universidad para los estudiantes?', 'De acuerdo', 0),
+   ('12 ¿Consideras importante la formación ética en la universidad para los estudiantes?', 'Ni de acuerdo ni en desacuerdo', 0),
+   ('12 ¿Consideras importante la formación ética en la universidad para los estudiantes?', 'En desacuerdo', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('13 ¿Crees que los conocimientos éticos adquiridos en la universidad son necesarios para el ejercicio profesional?', 'Muy necesario', 0),
+   ('13 ¿Crees que los conocimientos éticos adquiridos en la universidad son necesarios para el ejercicio profesional?', 'Necesario', 0),
+   ('13 ¿Crees que los conocimientos éticos adquiridos en la universidad son necesarios para el ejercicio profesional?', 'Neutro', 0),
+   ('13 ¿Crees que los conocimientos éticos adquiridos en la universidad son necesarios para el ejercicio profesional?', 'Poco necesario', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('14 ¿Piensas que la falta de formación ética puede llevar a prácticas profesionales inadecuadas?', 'Totalmente de acuerdo', 0),
+   ('14 ¿Piensas que la falta de formación ética puede llevar a prácticas profesionales inadecuadas?', 'De acuerdo', 0),
+   ('14 ¿Piensas que la falta de formación ética puede llevar a prácticas profesionales inadecuadas?', 'Ni de acuerdo ni en desacuerdo', 0),
+   ('14 ¿Piensas que la falta de formación ética puede llevar a prácticas profesionales inadecuadas?', 'En desacuerdo', 0);
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('15 ¿Crees que los conocimientos en ética ayudan a los estudiantes a enfrentar mejor los dilemas profesionales?', 'Totalmente de acuerdo', 0),
+   ('15 ¿Crees que los conocimientos en ética ayudan a los estudiantes a enfrentar mejor los dilemas profesionales?', 'De acuerdo', 0),
+   ('15 ¿Crees que los conocimientos en ética ayudan a los estudiantes a enfrentar mejor los dilemas profesionales?', 'Ni de acuerdo ni en desacuerdo', 0),
+   ('15 ¿Crees que los conocimientos en ética ayudan a los estudiantes a enfrentar mejor los dilemas profesionales?', 'En desacuerdo', 0);
+
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES
+   ('16 ¿Estás de acuerdo en que los temas éticos que se ven en la universidad se aplican en el campo laboral?', 'Totalmente de acuerdo', 0),
+   ('16 ¿Estás de acuerdo en que los temas éticos que se ven en la universidad se aplican en el campo laboral?', 'De acuerdo', 0),
+   ('16 ¿Estás de acuerdo en que los temas éticos que se ven en la universidad se aplican en el campo laboral?', 'Ni de acuerdo ni en desacuerdo', 0),
+   ('16 ¿Estás de acuerdo en que los temas éticos que se ven en la universidad se aplican en el campo laboral?', 'En desacuerdo', 0);
+INSERT INTO preguntas (pregunta, respuesta, cant_resp)
+VALUES ('', '', 0);
+
